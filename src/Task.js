@@ -12,13 +12,23 @@ class Task extends React.Component{
     }
   }
 
-
+  handleInputChange = (event ) =>{
+     if(event.target.id === 'inputColor'){
+       this.setState({
+         inputColor : event.target.value
+       })
+     }else if(event.target.id === 'inputBgColor'){
+      this.setState({
+        inputBgColor : event.target.value
+      })
+     }
+  }
 
   render(){
     return(
       <>
        <Header />
-       <Inputs />
+       <Inputs handleInputChange={this.handleInputChange} />
       </>
     )
   }
