@@ -6,19 +6,28 @@ const Input = (props) =>{
    return(
      <div className='input-part'>
        <div className='left-input-container'>
-          <input 
+          Color :
+          <div>
+             <input 
+             style={{ border : `1px solid ${props.isValid ? 'green' : 'red'}`}}
              type='text' 
              className='input' 
              id='inputColor' 
+             placeholder='Start with #' 
              onChange={(e)=>props.handleInputChange(e )}/>
+          </div>
        </div>
 
        <div className='right-input-container'>
-          <input 
+          BgColor :
+          <div>
+             <input 
              type='text' 
              className='input'
-             id='inputBgColor' 
+             id='inputBgColor'
+             placeholder='Start with #' 
              onChange={(e)=>props.handleInputChange(e )} />
+          </div>
        </div>
      </div>
    )

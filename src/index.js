@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 // Components
-import Task from './Task'
+import App from './App'
 
 
-ReactDOM.render( <Task /> , document.getElementById('root'))
+ReactDOM.render( <App /> , document.getElementById('root'))

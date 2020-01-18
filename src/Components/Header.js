@@ -1,15 +1,16 @@
-import React from 'react'
+import React from "react";
 // Compornents
-import './Header.css'
+import "./Header.css";
 
-const Header = () =>{
-  return(
-    <div className='header-container'>
-      <div>
-        <h1 className='header-text'>Color changing page!!</h1>
-      </div>
-    </div>
-  )
-}
+const Header = props => {
+    const { title } = props;
+    return (
+        <div className="header-container">
+            <div>
+                <h1 className="header-text"> {title} </h1>
+            </div>
+        </div>
+    );
+};
 
-export default Header
+export default Header;

@@ -1,0 +1,7 @@
+.text-container{
+  display: flex;
+  justify-content: center;
+}
+.text-div{
+  width: 80%;
+}
