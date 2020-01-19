@@ -8,35 +8,29 @@ class App extends React.Component {
     constructor() {
         super();
         this.state = {
-            inputColor: "",
-            inputBgColor: "",
-            isValid : '',
+            inputColor: localStorage.getItem('inputColor') ? localStorage.getItem('inputColor') : '' ,
+            inputBgColor: localStorage.getItem('inputBgColor') ? localStorage.getItem('inputBgColor') : '',
         };
     }
-
-    handleInputChange = event => {
-        let isOk = /^#([0-9A-F]{3}){1,2}$/i.test(event.target.value);
-        this.setState({ isValid : isOk})
-        if(isOk === false){return ''}
-
-        if (event.target.id === "inputColor") {
-            this.setState({
-                inputColor: event.target.value
-            });
-        } else if (event.target.id === "inputBgColor") {
-            this.setState({
-                inputBgColor: event.target.value
-            });
-        }
-    };
+    
+    handleInput = ( id , input) =>{
+        if( id === 'inputColor'){
+            localStorage.setItem('inputColor' , input)
+           this.setState({ inputColor : input})
+          } else if(id === 'inputBgColor'){
+            localStorage.setItem('inputBgColor' , input)
+            this.setState({ inputBgColor : input})
+          }
+    }
 
     render() {
         const { inputColor, inputBgColor , isValid } = this.state;
+        console.log(localStorage)
         console.log(isValid)
         return (
             <>
                 <Header title="color changing page!!" />
-                <Inputs handleInputChange={this.handleInputChange} isValid={isValid} />
+                <Inputs handleInput={this.handleInput} />
                 <TextPart color={inputColor} bgColor={inputBgColor}  />
             </>
         );
