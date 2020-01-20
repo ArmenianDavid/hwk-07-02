@@ -9,8 +9,8 @@ class Input extends React.Component{
       this.state ={
          inputColor : '',
          inputBgColor : '',
-         isValidColor : localStorage.getItem('isValidColor') ? localStorage.getItem('isValidColor') : false ,
-         isValidBgColor : localStorage.getItem('isValidBgColor') ? localStorage.getItem('isValidBgColor') : false,
+         isValidColor : true ,
+         isValidBgColor : true ,
       }
    }
    
@@ -19,14 +19,12 @@ class Input extends React.Component{
 
       if (event.target.id === "inputColor") {
          let isOk = /^#([0-9A-F]{3}){1,2}$/i.test(event.target.value) || event.target.value  === '';
-         localStorage.setItem('isValidColor' , isOk)
         return this.setState({ isValidColor : isOk , inputColor: event.target.value},
             ()=>this.props.handleInput("inputColor" , this.state.inputColor )
             ) 
          
       } else if (event.target.id === "inputBgColor" ) {
          let isOk = /^#([0-9A-F]{3}){1,2}$/i.test(event.target.value) || event.target.value === '';
-         localStorage.setItem('isValidBgColor' , isOk)
         return this.setState({ isValidBgColor : isOk , inputBgColor: event.target.value},
             ()=>this.props.handleInput("inputBgColor" , this.state.inputBgColor )
             )
@@ -36,6 +34,7 @@ class Input extends React.Component{
 
    render(){
      const  { isValidColor , isValidBgColor } = this.state
+     console.log(localStorage)
 
    return(
      <div className='input-part'>

@@ -25,7 +25,6 @@ class App extends React.Component {
 
     render() {
         const { inputColor, inputBgColor , isValid } = this.state;
-        console.log(localStorage)
         console.log(isValid)
         return (
             <>
