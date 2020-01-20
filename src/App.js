@@ -3,6 +3,7 @@ import React from "react";
 import Header from "./Components/Header";
 import Inputs from "./Components/Inputs";
 import TextPart from "./Components/TextPart";
+import PoweredBy from './Components/PoweredBy/PoweredBy'
 
 class App extends React.Component {
     constructor() {
@@ -31,6 +32,7 @@ class App extends React.Component {
                 <Header title="color changing page!!" />
                 <Inputs handleInput={this.handleInput} />
                 <TextPart color={inputColor} bgColor={inputBgColor}  />
+                <PoweredBy text='Powered By' name='Davit Sahakyan' />
             </>
         );
     }
